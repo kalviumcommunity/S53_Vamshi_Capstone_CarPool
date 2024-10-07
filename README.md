@@ -67,3 +67,9 @@ Project Ideation
 
   Day 3:
  High-fidelity Figma Design
+
+# Frontend Deployment Link: 
+ https://client-zeta-navy.vercel.app/
+
+# Backend Deployment Link:
+https://s53-vamshi-capstone-carpool.onrender.com/ 
