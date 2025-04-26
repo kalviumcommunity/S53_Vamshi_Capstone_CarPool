@@ -73,39 +73,10 @@ const driverSchema = new mongoose.Schema(
   },
   {
     collection: "drivers",
-    timestamps: true, 
+    timestamps: true,  // Store timestamps (createdAt, updatedAt)
   }
 );
 
 const Driver = mongoose.model("Driver", driverSchema);
 
 module.exports = Driver;
-
-
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,  
-    trim: true,   
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,  
-    trim: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  }
-});
-
-
-
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
