@@ -14,7 +14,7 @@ const EditDriverPage = () => {
   useEffect(() => {
     const fetchDriver = async () => {
       try {
-        const response = await fetch(`/api/drivers/${id}`)
+        const response = await fetch(`http://localhost:3001/drivers/${id}`)
         const data = await response.json()
 
         if (!response.ok) {
@@ -75,7 +75,7 @@ const EditDriverPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Edit Driver</h1>
-      <DriverForm initialData={driver} isEditing={true} />
+      <DriverForm initialData={driver} isEditing={true} id={id}/>
     </div>
   )
 }

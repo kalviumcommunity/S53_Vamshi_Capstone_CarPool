@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-const DriverForm = ({ initialData, isEditing = false }) => {
+const DriverForm = ({ initialData, isEditing = false , id}) => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -34,12 +34,19 @@ const DriverForm = ({ initialData, isEditing = false }) => {
     e.preventDefault()
     setLoading(true)
     setError("")
-
     try {
+      if(!isEditing){
         const response = await axios.post("http://localhost:3001/drivers",formData)
         console.log(response.data)
         alert("Driver Details Added")
       navigate("/drivers")
+      }
+      else{
+        const response = await axios.put(`http://localhost:3001/editdrivers/${id}`,formData) 
+        console.log(response.data)
+        navigate("/drivers")
+      }
+        
     } catch (err) {
       setError(err.message)
     } finally {

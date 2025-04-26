@@ -7,6 +7,7 @@ router.get('/getdrivers', driverController.getAllDrivers);
 
 router.post('/drivers', driverController.addDriver);
 router.get('/drivers/:id', driverController.getDriverById);
+router.put('/editdrivers/:id', driverController.updateDriver);
 
 
 
