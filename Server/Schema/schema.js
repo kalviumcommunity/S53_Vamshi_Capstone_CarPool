@@ -17,12 +17,7 @@ const driverSchema = new mongoose.Schema(
     },
     driver_image: {
       type: String,
-      validate: {
-        validator: function (v) {
-          return /^https?:\/\/.+\.(jpg|jpeg|png|gif)$/.test(v);
-        },
-        message: (props) => `${props.value} is not a valid URL for an image!`,
-      },
+      default : ""
     },
     ratings: {
       type: Number,
