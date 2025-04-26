@@ -3,6 +3,7 @@ const userRoutes = require('./Routes/UserRoutes');
 const driverRoutes = require('./Routes/DriverRoutes'); 
 const connectMongoDB = require('./DataBase/ConnectMongoDB.js');
 require('dotenv').config();
+const cors = require("cors")
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -11,8 +12,11 @@ connectMongoDB();
 
 app.use(express.json());
 
-app.use('/', userRoutes);
-app.use('/', driverRoutes);  
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+app.use(userRoutes);
+app.use( driverRoutes);  
 
 // Welcome message
 app.get('/', (req, res) => {
